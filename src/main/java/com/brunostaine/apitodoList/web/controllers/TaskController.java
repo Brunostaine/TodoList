@@ -74,6 +74,15 @@ public class TaskController {
         taskService.deletarPorId(id);
         return ResponseEntity.noContent().build();
     }
+    @Operation(summary = "Faz a atualização de uma tarefa pelo Id", description = "Recurso que atualiza a tarefa pelo Id", responses = {
+            @ApiResponse(responseCode = "200", description = "Recurso deletado com sucesso",
+                    content = @Content(mediaType = "application/json;charset=UTF-8",
+                            schema = @Schema(implementation = Task.class))),
+            @ApiResponse(responseCode = "404", description = "Tarefa não encontrada", content = @Content(mediaType = "application/json",
+                    schema = @Schema(implementation = ErrorMessage.class))),
+            @ApiResponse(responseCode = "422", description = "Recurso não processado por dados de entrada inválidos", content = @Content(mediaType = "application/json",
+                    schema = @Schema(implementation = ErrorMessage.class)))
+    })
 
     @PutMapping("/task/{id}")
     public ResponseEntity<Task> update(@PathVariable Long id, @Valid @RequestBody Task task) {

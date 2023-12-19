@@ -1,10 +1,8 @@
-# API Rest de lista de tarefas
+# API Rest de TODO LIST
 
 ## :clipboard: Descrição
 
 Esse é o projeto de uma API Rest para listar tarefas do dia-a-dia. 
-
-
 
 ## :wrench: Funcionalidades
 - Armazenar tarefas
@@ -28,11 +26,13 @@ Utilize a IDE de sua preferência a que usei foi a InteliJ
 Utilize ferramentas como postman ou insominia para testar os endponts
 
 ## :large_blue_circle: Implementações futuras
-- [ ] Implementar criar tarefa
-- [ ] Implementar buscar tarefas
-- [ ] Implementar buscar tarefas por id
-- [ ] Implementar editar tarefas por id
-- [ ] Implementar deletar tarefas por id
+- [x] Implementar criar tarefa
+- [x] Implementar buscar tarefas
+- [x] Implementar buscar tarefas por id
+- [x] Implementar editar tarefas por id
+- [x] Implementar deletar tarefas por id
+- [x] Implementar documentação com Swagger
+- [ ] Implementar testes de ponta a ponta
 
 
 ## :globe_with_meridians: Status do projeto
@@ -45,7 +45,7 @@ Utilize ferramentas como postman ou insominia para testar os endponts
 - [Lombok](https://projectlombok.org/features/)
 
 ## :open_file_folder: Imagens
-Em breve...
+![todo.png](todo.png)
 
 ## :construction_worker: Autor
 <img src="https://user-images.githubusercontent.com/87622645/157755137-8d22a951-d323-4c33-814e-c0351ebefafe.png" width=100><br>
