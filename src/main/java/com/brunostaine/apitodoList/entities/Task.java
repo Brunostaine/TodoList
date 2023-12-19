@@ -1,6 +1,7 @@
 package com.brunostaine.apitodoList.entities;
 
 import jakarta.persistence.*;
+import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Size;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -19,12 +20,15 @@ public class Task implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     @Column(name = "titulo", nullable = false, length = 30)
-
+    @Size(min = 5, max = 30)
+    @NotBlank
     private String title;
     @Column(name = "descricao", nullable = false, length = 300)
+    @Size(min = 5, max = 300)
+    @NotBlank
     private String description;
-    @Enumerated(EnumType.STRING)
     @Column(name = "status", nullable = false, length = 25)
+    @Enumerated(EnumType.STRING)
     private Status status = Status.PENDENTE;
 
     public enum Status {
