@@ -61,4 +61,23 @@ public class TaskController {
         Task task = taskService.buscarPorId(id);
         return ResponseEntity.ok(task);
     }
+
+    @Operation(summary = "Deletar tarefa pelo Id", description = "Recurso que Deleta tarefa pelo Id", responses = {
+            @ApiResponse(responseCode = "204", description = "Recurso deletado com sucesso",
+                    content = @Content(mediaType = "application/json;charset=UTF-8",
+                            schema = @Schema(implementation = Task.class))),
+            @ApiResponse(responseCode = "404", description = "Tarefa não encontrada", content = @Content(mediaType = "application/json",
+                    schema = @Schema(implementation = ErrorMessage.class))),
+    })
+    @DeleteMapping("/task/{id}")
+    public ResponseEntity<Void> deleteById(@PathVariable Long id) {
+        taskService.deletarPorId(id);
+        return ResponseEntity.noContent().build();
+    }
+
+    @PutMapping("/task/{id}")
+    public ResponseEntity<Task> update(@PathVariable Long id, @Valid @RequestBody Task task) {
+        Task taskUpdate = taskService.editarTarefa(id, task);
+        return ResponseEntity.status(HttpStatus.OK).body(taskUpdate);
+    }
 }
